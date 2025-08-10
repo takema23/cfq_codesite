@@ -1,0 +1,1 @@
+Welcome to this directory, which contains all the exercises and practice projects I completed while taking a C# course on Udemy. Here, you will find my progress, solutions, and learning experiences as I developed my skills in C# programming.
