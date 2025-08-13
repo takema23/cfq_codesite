@@ -69,77 +69,74 @@ namespace RandomNumber
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("================================================================");
-            Console.WriteLine("Welcome to my first application!");
-            Console.WriteLine("This application can calculate results for basic operations");
-            Console.WriteLine("Please select the operation you want to execute or press Escape:");
-            Console.WriteLine("================================================================");
-            Console.WriteLine(
-                "1. Multiply\n" +
-                "2. Addition\n" +
-                "3. Minus\n" +
-                "4. Division\n" +
-                "5. Exit\n"
-            );
-            Console.Write("Please enter your choice: ");
-            string choice = Console.ReadLine();
+            bool keepRunning = true;
+            while (keepRunning)
+            {
+                Console.WriteLine("================================================================");
+                Console.WriteLine("Welcome to my first application!");
+                Console.WriteLine("This application can calculate results for basic operations");
+                Console.WriteLine("Please select the operation you want to execute or press Escape:");
+                Console.WriteLine("================================================================");
+                Console.WriteLine(
+                    "1. Multiply\n" +
+                    "2. Addition\n" +
+                    "3. Minus\n" +
+                    "4. Division\n" +
+                    "5. Exit\n"
+                );
+                Console.Write("Please enter your choice: ");
+                string choice = Console.ReadLine();
 
-            switch (choice)
-            {
-                case "1":
-                    // Call the multiply method
-                    break;
-                case "2":
-                    // Call the addition method
-                    break;
-                case "3":
-                    // Call the minus method
-                    break;
-                case "4":
-                    // Call the division method
-                    break;
-                case "5":
-                    Console.WriteLine("Exiting the application...");
-                    return;
-                default:
-                    Console.WriteLine("Invalid choice. Please try again.");
-                    break;
-            }
-            Console.WriteLine("================================================================");
-            Console.WriteLine("Please enter the numbers you want to operate on (comma separated):");
-            string input = Console.ReadLine();
-            List<int> numbers = new List<int>();
-            foreach (string num in input.Split(','))
-            {
-                if (int.TryParse(num.Trim(), out int result))
+                if (choice == "5")
                 {
-                    numbers.Add(result);
-                }
-            }
-
-            // Call the appropriate method based on the user's choice
-            switch (choice)
-            {
-                case "1":
-                    new numberAdded().multiply(numbers);
-                    break;
-                case "2":
-                    new numberAdded().add(numbers);
-                    break;
-                case "3":
-                    new numberAdded().subtract(numbers);
-                    break;
-                case "4":
-                    new numberAdded().divide(numbers);
-                    break;
-                case "5":
                     Console.WriteLine("Exiting the application...");
-                    return;
-                default:
-                    Console.WriteLine("Invalid choice. Please try again.");
                     break;
+                }
+
+                Console.WriteLine("================================================================");
+                Console.WriteLine("Please enter the numbers you want to operate on (comma separated):");
+                string input = Console.ReadLine();
+                List<int> numbers = new List<int>();
+                foreach (string num in input.Split(','))
+                {
+                    if (int.TryParse(num.Trim(), out int result))
+                    {
+                        numbers.Add(result);
+                    }
+                }
+
+                // Call the appropriate method based on the user's choice
+                switch (choice)
+                {
+                    case "1":
+                        new numberAdded().multiply(numbers);
+                        break;
+                    case "2":
+                        new numberAdded().add(numbers);
+                        break;
+                    case "3":
+                        new numberAdded().subtract(numbers);
+                        break;
+                    case "4":
+                        new numberAdded().divide(numbers);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice. Please try again.");
+                        break;
+                }
+
+                Console.WriteLine("Thank you for using the application!");
+                Console.Write("Do you want to perform another operation? (y/n): ");
+                string again = Console.ReadLine();
+                if (!again.Equals("y", StringComparison.OrdinalIgnoreCase))
+                {
+                    keepRunning = false;
+                }
+                Console.WriteLine();
             }
-            Console.WriteLine("Thank you for using the application!");
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
         }
+        // ...existing code...
     }
 }
