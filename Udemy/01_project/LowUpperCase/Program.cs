@@ -67,10 +67,6 @@ namespace RandomNumber
 
     class Program // Main class
     {
-        int sumvalue; //result value for the sum operation
-        int restvalue; //result value for the rest operation
-        int divvalue; //result value for division operation
-        int multvalue; //result value for multiplication operation
         static void Main(string[] args)
         {
             Console.WriteLine("================================================================");
